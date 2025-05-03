@@ -6,3 +6,11 @@ for (let i = 1; i <= 16; i++) {
     container.appendChild(div);
   }
 }
+
+const divs = document.querySelectorAll(".container div");
+divs.forEach((div) => {
+  div.addEventListener("mouseenter", (event) => {
+    const tr = event.target;
+    tr.style.backgroundColor = "black";
+  });
+});
