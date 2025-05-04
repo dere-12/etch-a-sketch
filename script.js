@@ -1,6 +1,10 @@
 const container = document.querySelector(".container");
 createGrid();
 
+function getRandomNumber() {
+  return Math.floor(Math.random() * 256);
+}
+
 function createGrid(n = 16) {
   // n = number of squares per side(like 5x5, 16x16...)
   const containerWidth = 640;
@@ -19,7 +23,7 @@ function createGrid(n = 16) {
   divs.forEach((div) => {
     div.addEventListener("mouseenter", (event) => {
       const tr = event.target;
-      tr.style.backgroundColor = "black";
+      tr.style.backgroundColor = `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
     });
 
     div.addEventListener("click", (event) => {
@@ -35,7 +39,8 @@ btn.addEventListener("click", () => {
     alert("Zero or Negative numbers are not allowed.");
   } else if (n > 100) {
     alert("Please enter a number between 1 and 100.");
+  } else {
+    container.innerHTML = "";
+    createGrid(n);
   }
-  container.innerHTML = "";
-  createGrid(n);
 });
