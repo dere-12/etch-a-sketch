@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffffee;
+  background-color: #000000ee;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,13 +11,28 @@ body {
 }
 
 .container {
-  width: 642px;
-  height: 642px;
-  border: 1px solid #f50303;
+  width: 552px;
+  height: 552px;
+  border: 1px solid #151615;
   display: flex;
   flex-wrap: wrap;
 }
 
 .container div {
   border: 1px solid #1a1919;
+  /* background-color: white; */
+}
+
+.btn {
+  padding: 12px 32px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 900;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(22, 119, 13);
+  color: #ffffff;
 }

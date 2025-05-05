@@ -7,7 +7,7 @@ function getRandomNumber() {
 
 function createGrid(n = 16) {
   // n = number of squares per side(like 5x5, 16x16...)
-  const containerWidth = 640;
+  const containerWidth = 550;
   const squareWidthOrHeight = containerWidth / n;
 
   for (let i = 1; i <= n; i++) {
@@ -22,12 +22,15 @@ function createGrid(n = 16) {
   const divs = document.querySelectorAll(".container div");
   divs.forEach((div) => {
     div.addEventListener("mouseenter", (event) => {
-      const tr = event.target;
-      tr.style.backgroundColor = `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
-    });
+      const targetElement = event.target;
+      targetElement.style.backgroundColor = `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
 
-    div.addEventListener("click", (event) => {
-      event.target.style.backgroundColor = "white";
+      const computedStyle = window.getComputedStyle(targetElement); // Returns the computed style for an element
+      let opacity = computedStyle.getPropertyValue("opacity");
+      // getPropertyValue method is a read-only method, returns the computed style properties after all css rules have been applied, including external css.
+      if (opacity >= 0.1) {
+        targetElement.style.opacity = opacity - 0.1;
+      }
     });
   });
 }
@@ -39,6 +42,8 @@ btn.addEventListener("click", () => {
     alert("Zero or Negative numbers are not allowed.");
   } else if (n > 100) {
     alert("Please enter a number between 1 and 100.");
+  } else if (isNaN(n)) {
+    alert("You either canceled the prompt or submitted an empty value.");
   } else {
     container.innerHTML = "";
     createGrid(n);
