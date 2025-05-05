@@ -35,7 +35,7 @@ function createGrid(n = 16) {
   });
 }
 
-const btn = document.querySelector(".btn");
+const btn = document.querySelector(".buttons .btn");
 btn.addEventListener("click", () => {
   const n = parseInt(prompt("Enter number of squares per side (1-100)"));
   if (n < 1) {
@@ -47,5 +47,15 @@ btn.addEventListener("click", () => {
   } else {
     container.innerHTML = "";
     createGrid(n);
+  }
+});
+
+document.querySelector(".buttons .theme").addEventListener("click", () => {
+  const body = document.querySelector("body");
+  let backgroundColor = body.style.backgroundColor;
+  if (backgroundColor === "white") {
+    body.style.backgroundColor = "black";
+  } else {
+    body.style.backgroundColor = "white";
   }
 });

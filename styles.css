@@ -1,5 +1,5 @@
 body {
-  background-color: #000000ee;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +20,6 @@ body {
 
 .container div {
   border: 1px solid #1a1919;
-  /* background-color: white; */
 }
 
 .btn {
@@ -35,4 +34,8 @@ body {
   cursor: pointer;
   background-color: rgb(22, 119, 13);
   color: #ffffff;
+}
+
+.theme {
+  margin-left: 40px;
 }
